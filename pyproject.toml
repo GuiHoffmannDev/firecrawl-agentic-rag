@@ -1,0 +1,26 @@
+[project]
+name = "firecrawl-agent"
+version = "0.1.0"
+description = "Corrective RAG workflow combining document retrieval (LlamaIndex + Milvus) with FireCrawl web search"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "llama-index-core",
+    "llama-index-llms-litellm",
+    "llama-index-embeddings-fastembed",
+    "llama-index-vector-stores-milvus",
+    "llama-index-readers-file",
+    "pymilvus[milvus_lite]",
+    "firecrawl-py",
+    "streamlit",
+    "python-dotenv",
+    "fastembed>=0.9.1",
+]
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["."]
